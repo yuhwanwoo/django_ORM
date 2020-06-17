@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% block title %}
+create
+{% endblock %}
+
 {% block body %}
-<h1>글 작성 완료</h1>
-<hr>
-<h2>제목은 {{ title }}</h2>
-<p>본문은 {{ content }}</p>
-<hr>
-<a href="{% url 'articles:index' %}">back</a>
+<a href="{% url 'articles:index' %}">index</a>
+<a href="{% url 'articles:new' %}">new</a>
+
+<p>{{ title }}, {{ text }}</p>
 {% endblock %}

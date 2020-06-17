@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
+{% block title %}
+  new
+{% endblock %}
+
 {% block body %}
-<hr>
-<form action="{% url 'articles:create' %}" method="GET">
+<h1>글 작성 페이지</h1>
+
+<a href="{% url 'articles:index' %}">index</a>
+<a href="{% url 'articles:introduce' %}">introduce</a>
+
+<form action="{% url 'articles:create' %}" method="POST">
+  {% csrf_token %}
   <label for="name">제목 : </label>
-  <input type="text" id="name" name="title">
+  <input type="text" name="title">
 
   <label for="cnt">내용 : </label>
-  <input type="text" id="cnt" name="content">
+  <input type="text" name="text">
 
   <input type="submit" value="글 작성">
 </form>
